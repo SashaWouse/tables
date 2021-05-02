@@ -1,0 +1,74 @@
+CREATE TABLE  REGISTER_USER(
+ user_id INT AUTO_INCREMENT,
+ firstname VARCHAR(50) NOT NULL,
+ lastname VARCHAR(50) NOT NULL, 
+ email_address TEXT NOT NULL,
+ password TEXT NOT NULL,
+ phone_number INT NULL,
+ picture TEXT NULL, 
+ address VARCHAR(100) NULL,
+ user_vst DATE  CURRENT_TIMESTAMP,
+ user_vet DATE,
+ user_type_ID INT,
+ PRIMARY KEY(user_id, user_vst )
+)engine=myisam;
+
+
+CREATE TABLE  USER_PET (
+ pet_id INT AUTO_INCREMENT,
+ title  VARCHAR(100),
+ birthdate  DATE,
+ breed VARCHAR(100) NOT NULL,
+ price VARCHAR(50) NOT NULL,
+ picture TEXT  NOT NULL,
+ description  TEXT NULL,
+ pet_vst DATE CURRENT_TIMESTAMP,
+ pet_vet DATE,
+ user_id INT,
+ pet_category_id INT,
+ PRIMARY KEY(pet_id, pet_vst)
+)engine=myisam;
+
+
+CREATE TABLE  USER_TYPE (
+ user_type_id INT  AUTO_INCREMENT,
+ type VARCHAR(30),
+ PRIMARY KEY(USER_TYPE_ID)
+)engine=myisam;
+
+CREATE TABLE  USER_MESSAGES(
+ message_id INT AUTO_INCREMENT,
+ message TEXT,
+ user_mess_vst DATE CURRENT_TIMESTAMP,
+ user_mess_vet DATE,
+ user_id INT,
+ PRIMARY KEY(message_id,user_mess_vst)
+)engine=myisam;
+
+CREATE TABLE PET_CATEGORY(
+ pet_category_id INT AUTO_INCREMENT,
+ category_name VARCHAR(20),
+ PRIMARY KEY(pet_category_id)
+)engine=myisam;
+
+
+INSERT INTO PET_CATEGORY VALUES('1', 'Cat');
+INSERT INTO PET_CATEGORY VALUES('2', 'Dog');
+INSERT INTO PET_CATEGORY VALUES('3', 'Reptiles');
+INSERT INTO PET_CATEGORY VALUES('4', 'Horses');
+INSERT INTO PET_CATEGORY VALUES('5', 'Birds');
+
+
+INSERT INTO USER_PET VALUES('',' Kitten for Sale','2020-12-25','Mixed Breed','200$','3a0d3f923dd831c9117d6e88ee77436e ','I have 3 kittens seeking new homes. ','2021-04-30','','3','1');
+
+
+CREATE TABLE PET_COMMENTS(
+ pet_comment_id INT AUTO_INCREMENT,
+ pet_comm_vst DATE CURRENT_TIMESTAMP,
+ pet_comm_vet DATE,
+ comment TEXT,
+ pet_id INT,
+ PRIMARY KEY(pet_comment_id, pet_comm_vst)
+)engine=myisam;
+
+
